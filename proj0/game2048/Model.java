@@ -110,28 +110,6 @@ public class Model extends Observable {
 
 
 
-    private int check(int col, int row, Tile tileValue){
-
-        if(tileValue != null){
-            while(row < board.size()-1 && board.tile(col, row+1) == null){
-                row++;
-            }
-            return row;
-        }
-
-        return 0;
-    }
-
-    private boolean checkNeighbour(int col, int row, Tile tile){
-        //directional array
-        //right - left - up - down
-        int[] rowDirection = {0, 0, -1, 1};
-        int[] colDirection = {1, -1, 0, 0};
-
-       return true;
-
-    }
-
     public boolean tilt(Side side) {
         boolean changed;
         changed = false;
@@ -174,7 +152,7 @@ public class Model extends Observable {
 
 
     /** Helper method that processes a single tile at (COL, 2) in board B
-     * when tilt up North. Return true iff this changes the board. */
+     * when tilt up North. Return true if this changes the board. */
     private boolean tiltUpSIngleTileRow2(int col, Board b){
 
         boolean change2 = false;
@@ -198,6 +176,9 @@ public class Model extends Observable {
     }
 
 
+
+    /** Helper method that processes a single tile at (COL, 1) in board B
+     * when tilt up North. Return true if this changes the board. */
     private boolean tiltUpSingleTileRow1(int col, Board b){
 
         boolean change1    = false;
@@ -240,6 +221,8 @@ public class Model extends Observable {
     }
 
 
+    /** Helper method that processes a single tile at (COL, 0) in board B
+     * when tilt up North. Return true if this changes the board. */
     private boolean tiltUpSingleTileRow0(int col, Board b){
         boolean change0    = false;
         Tile    tileRow0   = b.tile(col, 0);
